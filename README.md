@@ -2,12 +2,18 @@
 # Convenience Store Shelf Item Detection(便利商店貨架商品偵測系統)
 ## 📌 專案目標
 
-本專案旨在訓練一個電腦視覺模型，能辨識便利商店貨架上的商品結構，協助店家進行上架管理與進一步銷售分析。
+本專案旨在開發一套基於 YOLOv8 模型的電腦視覺系統，能夠準確辨識便利商店貨架上的商品，提升店家在商品上架管理、自動補貨及銷售分析上的效率。
 
 ### 🎯 預期辨識層級：
 - 第一層：容器類型（如 鋁箔包、鐵鋁罐、玻璃瓶、寶特瓶等）
 - 第二層：商品類別（如 茶、酒、水、乳製品等）
 - 第三層：品牌（未來計畫擴充）
+| 容器           | 種類列表                                               | 容器             | 種類列表                                               |
+|----------------|--------------------------------------------------------|------------------|--------------------------------------------------------|
+| **AlminumFoilPack** | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water | **Can**          | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water |
+| **Glass**      | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water | **HandPack**     | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water |
+| **PET**        | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water | **PlasticBottle**| Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water |
+| **TetraPak**   | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water | **YakultBottle** | Alcohol, Coffee, DairyProducts, EnergyDrink, FruitJuice, LacticAcid, Soda, SoyaMilk, SportsDrink, Tea, Water |
 
 ## 🗂️ 專案檔案說明
 
@@ -19,8 +25,15 @@
 | `model/`            | 訓練後模型或下載連結 |
 | `src/`              | 程式碼檔案（如推論腳本） |
 
+📁 資料集來源與說明
+標註資料集：由組員至便利商店與超市實地拍攝，共拍攝近 XXX 張圖片，經 Roboflow 進行標記與轉換。
+
+Roboflow 連結（訓練用公開集）：
+🔗 https://universe.roboflow.com/holelabel-pan10/merged-dl-v2
+
 ## 📦 使用方法
-利用roboflow進行圖片標記，在使用yolo模型進行訓練
+使用 Roboflow 進行圖片上標註，匯出 YOLOv8 或是 YOLO11 格式資料集。
+訓練模型範例說明:model.train(data="/content/Merged-DL-v2-2/data.yaml", epochs=50, imgsz=640)
 
 ## 📄 License
 ???
