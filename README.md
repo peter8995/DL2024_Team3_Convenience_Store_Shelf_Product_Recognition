@@ -21,7 +21,7 @@
 | `detect.py/`        | 實作辨識 |
 
 ## 🔍 資料集來源與說明
-- 來源：便利商店及超市實地拍攝，相機長寬比設定為16:9，直拍與橫拍皆有
+- 來源：便利商店及超市實地拍攝，相機長寬比設定為 16:9 ，直拍與橫拍皆有
 - 說明：標註好的資料集用資料擴增增加圖片數量(原始拍攝為 573 張，後擴增為 1719 張)，擴增方法選擇 rotation±7°、saturation±20%、brightness±13%
 - Roboflow 連結（訓練用公開集）：
 🔗 [https://universe.roboflow.com/holelabel-pan10/merged-dl-v2](https://universe.roboflow.com/holelabel-pan10/merged-dl-v2/dataset/8)
@@ -37,8 +37,9 @@
 3. 解壓縮後請把 `train` 中的兩個目錄放到與 `train` 同一層，移動後刪除 `train` 目錄
 4. 執行 `python main.py --doDP` 即開始訓練模型
 5. 訓練完成後即可執行 `python detect.py` 測試模型辨識效果
+6. 您也可以下載已訓練好的模型，連結 🔗 https://huggingface.co/wen15/DL2025_Team3_YOLOv8x
 
 ## 💡 補充說明
-- 模型標籤數量實際為 48 種，因有些包裝的材質並不會莊某類型的飲料，例如塑膠瓶裝酒、鋁箔包裝汽水等
+- 模型標籤數量實際為 48 種，因有些包裝的材質並不會裝某類型的飲料，例如塑膠瓶裝酒、鋁箔包裝汽水等
 - 資料集的圖片標註與資料擴增皆於 Roboflow 完成
 - `requirements.txt` 中的 `torch` 版本請依照自身環境下載對應版本
