@@ -14,16 +14,19 @@
 |---------------------|------|
 | `README.md`         | 本說明文件 |
 | `requirements.txt`  | 套件需求，建議安裝於虛擬環境 |
-| `train/`            | 資料處理與模型訓練 (code) |
-| `detect/`           | 實作辨識 (code) |
+| `main.py`           | 主程式 |
+| `data_process.py/`  | 資料前處理 |
+| `train.py/`         | 訓練模型 |
+| `test.py/`          | 預測測試集結果 |
+| `detect.py/`        | 實作辨識 |
 
-## 📁 資料集來源與說明
+## 🔍 資料集來源與說明
 - 來源：便利商店及超市實地拍攝，相機長寬比設定為16:9，直拍與橫拍皆有
 - 說明：標註好的資料集用資料擴增增加圖片數量(原始拍攝為 573 張，後擴增為 1719 張)，擴增方法選擇 rotation±7°、saturation±20%、brightness±13%
 - Roboflow 連結（訓練用公開集）：
 🔗 [https://universe.roboflow.com/holelabel-pan10/merged-dl-v2](https://universe.roboflow.com/holelabel-pan10/merged-dl-v2/dataset/8)
 
-## 📦 使用方法
+## ⚙️ 使用方法
 1. 下載本程式碼
 2. 下載上方 roboflow 的資料集 (匯出時請選擇 yolov8-obb 格式) ，建立 `./roboflow_export` ，將 zip 放入後解壓縮，目錄內容格式應為
     ```
@@ -35,6 +38,6 @@
 4. 執行 `python main.py --doDP` 即開始訓練模型
 5. 訓練完成後即可執行 `python detect.py` 測試模型辨識效果
 
-## 補充說明
+## 💡 補充說明
 - 模型標籤數量實際為 48 種，因有些包裝的材質並不會莊某類型的飲料，例如塑膠瓶裝酒、鋁箔包裝汽水等
 - 資料集的圖片標註與資料擴增皆於 Roboflow 完成
