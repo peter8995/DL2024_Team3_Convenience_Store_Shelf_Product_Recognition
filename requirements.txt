@@ -1,0 +1,4 @@
+ipython==8.12.3
+opencv_python==4.11.0.86
+torch==2.7.1+cu128
+ultralytics==8.3.150
