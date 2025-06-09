@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-# 載入訓練好的模型（請確保 best.pt 路徑正確）
+# 載入訓練好的模型 (請確認best.pt路徑正確)
 model = YOLO("runs/detect/train/weights/best.pt")
 
 # 開啟攝影機

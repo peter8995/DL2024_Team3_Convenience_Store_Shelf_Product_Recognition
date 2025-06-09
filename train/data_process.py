@@ -12,9 +12,8 @@ def data_process(source_base_dir,dest_base_dir):
     # 設定切分比例
     train_ratio = 0.7   # 訓練集比例
     valid_ratio = 0.2   # 驗證集比例
-    test_ratio  = 0.1   # 測試集比例
 
-    # (YOLOv8 的目錄結構)
+    # YOLOv8的目錄結構
     dest_dirs = {
         "train": {
             "images": os.path.join(dest_base_dir, "train", "images"),
@@ -45,11 +44,10 @@ def data_process(source_base_dir,dest_base_dir):
     # 隨機打亂圖片順序
     random.shuffle(all_images)
 
-    # 計算劃分每個資料集的圖片數量
+    # 計算每個資料集的圖片數量
     num_images = len(all_images)
     num_train = int(num_images * train_ratio)
     num_valid = int(num_images * valid_ratio)
-    num_test  = num_images - num_train - num_valid  # 保證總數一致
 
     train_images = all_images[:num_train]
     valid_images = all_images[num_train:num_train+num_valid]
@@ -57,7 +55,7 @@ def data_process(source_base_dir,dest_base_dir):
 
     print(f"-----Train: {len(train_images)} | Valid: {len(valid_images)} | Test: {len(test_images)}")
 
-    # 開始複製圖片及對應標籤檔案到各自的資料夾
+    # 複製圖片及對應標籤檔案到各自的資料夾
     for split, image_list in zip(["train", "valid", "test"], [train_images, valid_images, test_images]):
         for img_file in image_list:
             # 複製圖片
@@ -65,7 +63,7 @@ def data_process(source_base_dir,dest_base_dir):
             dst_img = os.path.join(dest_dirs[split]["images"], img_file)
             copy_file(src_img, dst_img)
 
-            # 對應的標籤檔案，假設與圖片同名但副檔名為 .txt
+            # 對應的標籤檔案(圖片同名但副檔名為 .txt)
             base_name = os.path.splitext(img_file)[0]
             label_file = base_name + ".txt"
             src_label = os.path.join(source_lbl_dir, label_file)
@@ -75,7 +73,7 @@ def data_process(source_base_dir,dest_base_dir):
             else:
                 print(f"-----[Warning] Image {img_file} has no corresponding label file:{label_file}")
     
-    # 複製data.yaml至dataset中
+    # 複製data.yaml至./dataset中
     try:
         shutil.copy(source_base_dir+"/data.yaml",dest_base_dir+"/data.yaml")
     except Exception as e:

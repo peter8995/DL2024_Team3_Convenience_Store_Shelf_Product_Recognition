@@ -45,7 +45,7 @@ SEED = 42
 
 if __name__ == '__main__':
 
-    # 判斷訓練是使用CPU or GPU
+    # 當前是使用CPU or GPU
     if torch.cuda.is_available():
         device = torch.device("cuda")
         print("-----Current Device is GPU:", torch.cuda.get_device_name(0))
