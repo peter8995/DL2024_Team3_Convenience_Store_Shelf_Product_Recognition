@@ -28,16 +28,21 @@
 
 ## ⚙️ 使用方法
 1. 下載本程式碼
-2. 下載上方 roboflow 的資料集 (匯出時請選擇 yolov8-obb 格式) ，建立 `./roboflow_export` ，將 zip 放入後解壓縮，目錄內容格式應為
+2. 下載上方 roboflow 的資料集 (匯出時請選擇 yolov8-obb 格式) ，建立 `./dataset` ，將 zip 放入後解壓縮，目錄內容格式應為
     ```
       └──train/
-          └── images
-          └── labels
+        |   └── images
+        |   └── labels
+        └──valid/
+        |   └── images
+        |   └── labels
+        └──test/
+            └── images
+            └── labels
       ```
-3. 解壓縮後請把 `train` 中的兩個目錄放到與 `train` 同一層，移動後刪除 `train` 目錄
-4. 執行 `python main.py --doDP` 即開始訓練模型
-5. 訓練完成後即可執行 `python detect.py` 測試模型辨識效果
-6. 您也可以下載已訓練好的模型，連結 🔗 https://huggingface.co/wen15/DL2025_Team3_YOLOv8x
+3. 執行 `python main.py` 即開始訓練模型
+4. 訓練完成後即可執行 `python detect.py` 測試模型辨識效果
+5. 您也可以下載已訓練好的模型，連結 🔗 https://huggingface.co/wen15/DL2025_Team3_YOLOv8x
 
 ## 💡 補充說明
 - 模型標籤數量實際為 48 種，因有些包裝的材質並不會裝某類型的飲料，例如塑膠瓶裝酒、鋁箔包裝汽水等
