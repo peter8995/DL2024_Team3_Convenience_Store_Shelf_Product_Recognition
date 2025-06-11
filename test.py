@@ -2,7 +2,7 @@ from ultralytics import YOLO
 
 def valid_and_test(dest_base_dir):
     # 載入模型
-    model = YOLO("runs/detect/train/weights/best.pt")
+    model = YOLO(dest_base_dir+"/train/weights/best.pt")
  
     # 驗證模型表現(驗證集)
     print("-----Running evaluation on valid set...")
