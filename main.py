@@ -1,7 +1,6 @@
 import os
 import torch
 import argparse
-from data_process import data_process
 from train import train_model
 from test import valid_and_test
 
